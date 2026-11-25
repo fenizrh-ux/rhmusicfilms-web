@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RH Music Films</title>
+<meta name="description" content="RH Music Films, La Fábrica de Sueños: videos musicales de todos los géneros en Manizales. Guion, dirección, grabación y edición.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: cinematográfica, calle y premium; segura, sin adornos baratos
+   IDEA: una claqueta de rodaje que también es una onda de audio — cine + música
+   PICTURE: la intro animada oficial del logo RH Music Films (se rompe y se arma) en una pantalla de cine
+   COLOUR and TYPE: negro profundo, rojo #e10600, blanco; Anton para títulos, Inter para texto
+   LUXE: bordes metalizados oro-rojo, grano de película en el negro, iconos de línea fina en oro con detalle rojo
+   LAYOUT: hero a sangre, bandas negras/rojas a todo lo ancho, servicios en rejilla, contacto con formulario de cotización */
+:root{color-scheme:dark;--bg:#0a0a0a;--bg2:#141414;--ink:#f5f5f5;--mute:#a8a8a8;--red:#e10600;--red2:#9e0400;--line:#2a2a2a}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,5vw,52px)}
+h3{font-size:24px}
+p{margin:0}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(48px,7vw,96px) max(5vw,16px)}
+.lead{font-size:17px;color:var(--mute);max-width:62ch;margin-top:14px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(10,10,10,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:16px;padding:12px max(5vw,16px);flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Anton,sans-serif;font-size:22px}
+.logo img{height:44px;width:auto;display:block}
+.links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--mute);padding:10px 12px;border-radius:8px;font-size:15px;font-weight:500}
+.links a:hover,.links a:focus-visible{color:#fff;background:var(--bg2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid var(--red);background:var(--red);color:#fff;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--red2);border-color:var(--red2)}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn.ghost:hover{background:#fff;color:#000}
+:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+/* hero */
+.hero{position:relative;padding:clamp(40px,6vw,80px) max(5vw,16px) 0;background:radial-gradient(120% 80% at 75% 30%,#2a0000 0%,#0a0a0a 60%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:center;padding-bottom:8px}
+.hero h1{font-size:clamp(54px,9vw,112px);line-height:.95}
+.hero h1 span{display:block;color:var(--red)}
+.hero p.lead{color:#d6d6d6;font-size:18px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;padding-bottom:40px}
+.meta div{font-size:14px;color:var(--mute)}
+.meta strong{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:34px;color:#fff;line-height:1.1}
+.art{position:relative;aspect-ratio:16/9;width:100%;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 30px 80px -20px rgba(225,6,0,.45),0 0 0 1px #2a2a2a}
+.art video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.replay{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.55);color:#fff;font:600 14px Inter,sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
+.replay:hover{background:var(--red);border-color:var(--red)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* strip */
+.strip{background:var(--red);color:#fff;padding:18px max(5vw,16px);overflow:hidden}
+.strip .wrap{display:flex;gap:14px 34px;flex-wrap:wrap;justify-content:center;font-family:Anton,sans-serif;font-size:clamp(20px,2.6vw,28px)}
+
+/* services */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:18px;margin-top:40px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.card svg{width:48px;height:48px}
+.card p{color:var(--mute)}
+.card ul{margin:4px 0 0;padding-left:18px;color:#d6d6d6;font-size:15px}
+.card ul li{margin:4px 0}
+
+/* portfolio */
+.port{background:#000}
+.port .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.screen{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:linear-gradient(0deg,rgba(0,0,0,.65),rgba(0,0,0,.2)),url(poster.jpg) center/cover,#000;border:1px solid var(--line);display:grid;place-items:center;text-decoration:none}
+.screen .play{width:88px;height:88px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(225,6,0,.18);transition:transform .2s}
+.screen:hover .play{transform:scale(1.08)}
+.screen .count{position:absolute;right:16px;top:12px;font-family:Anton,sans-serif;font-size:clamp(40px,6vw,64px);line-height:1;color:#fff;opacity:.9}
+.screen .tag{position:absolute;left:16px;bottom:14px;font-size:14px;color:#ddd}
+.genres{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.genres span{border:1px solid #3a3a3a;border-radius:999px;padding:6px 14px;font-size:14px;color:#ddd}
+
+/* promo */
+.promo{position:relative;overflow:hidden;padding-top:clamp(110px,12vw,150px);background:radial-gradient(90% 120% at 25% 35%,#5a0000 0%,#1a0000 50%,#050505 90%)}
+.promo .snow{position:absolute;inset:0;width:100%;height:100%}
+.phang{position:absolute;top:0;left:0;width:100%;height:clamp(110px,14vw,200px)}
+.promo .wrap{position:relative}
+.pgrid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;align-items:center}
+.ptree{width:100%;max-width:420px;justify-self:center;filter:drop-shadow(0 25px 35px rgba(0,0,0,.6))}
+.cupos{display:inline-block;margin-bottom:12px;background:#fff;color:var(--red);font-weight:800;font-size:15px;padding:6px 14px;border-radius:999px}
+.ptitle{font-size:clamp(48px,7vw,88px);line-height:.95}.ptitle span{color:#ff2a1a}
+.ptwo{margin-top:10px;font-family:Anton,sans-serif;font-size:clamp(30px,4vw,48px);line-height:1.05}
+.pp{display:inline-block;margin-top:14px;background:#fff;color:#0a0a0a;border-radius:12px;padding:6px 22px;font-family:Anton,sans-serif;font-size:clamp(36px,5vw,56px);line-height:1.15;white-space:nowrap}
+.pc{margin-top:10px;font-weight:700}
+.pl{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.pl li{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 16px;font-weight:700;font-size:15px}
+.pl li:before{content:"✓ ";color:#ff2a1a}
+.pg{margin-top:16px;color:#eee;max-width:60ch}
+.terms{margin-top:36px;border:2px solid var(--red);border-radius:18px;padding:22px 24px;background:rgba(0,0,0,.45)}
+.terms h3{color:#ff2a1a;font-size:24px;margin-bottom:8px}
+.terms ul{margin:0;padding-left:20px;display:grid;gap:6px;color:#e6e6e6}
+.terms b{color:#fff}
+.wa-btn{background:#25d366;border-color:#25d366}.wa-btn:hover{background:#1da851;border-color:#1da851}
+.links a.hot{color:#fff;background:var(--red)}
+@media(max-width:860px){.pgrid{grid-template-columns:minmax(0,1fr)}.ptree{max-width:260px}}
+
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px;align-items:stretch}
+.plan{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:30px 24px 24px;display:flex;flex-direction:column;gap:14px}
+.plan.top{border:2px solid var(--red);box-shadow:0 20px 50px -20px rgba(225,6,0,.6);transform:translateY(-8px)}
+.badge-top{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-weight:700;font-size:13px;padding:5px 14px;border-radius:999px;white-space:nowrap}
+.medal{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,var(--medal) 45%,#000 140%);box-shadow:0 0 0 4px rgba(255,255,255,.08)}
+.plan h3{font-size:30px}
+.plan ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;align-content:start;color:#ddd;flex:1}
+.plan li{padding-left:24px;position:relative}
+.plan li:before{content:"✓";position:absolute;left:0;color:#ff2a1a;font-weight:800}
+.plan .btn{width:100%}
+.pnote{margin-top:24px;color:var(--mute)}
+@media(max-width:860px){.plans{grid-template-columns:minmax(0,1fr)}.plan.top{transform:none}}
+
+/* gear */
+.equipo{background:#000}
+.gears{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:40px}
+.gear{display:flex;gap:16px;align-items:flex-start;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px}
+.gear svg{width:44px;height:44px;flex:none}
+.gear h3{font-size:22px;margin-bottom:6px}
+.gear p{color:var(--mute);font-size:15px}
+.crew{display:flex;gap:20px;align-items:center;justify-content:center;text-align:center;margin-top:20px;padding:26px;border-radius:18px;background:linear-gradient(135deg,#2a0000,#140000);border:1px solid #4a0a0a}
+.crew svg{width:64px;height:64px;flex:none}
+.crew h3{margin-bottom:8px}
+.crew p{font-family:Anton,sans-serif;font-size:clamp(24px,3vw,34px);line-height:1.15;color:#fff}
+@media(max-width:600px){.crew{flex-direction:column;align-items:flex-start}}
+
+.bts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:20px}
+.bts figure{position:relative;margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);min-height:clamp(320px,42vw,560px);background:#111}
+.bts img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bts .b1 img{object-position:50% 70%}
+.bts figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px;margin-top:40px;counter-reset:s}
+.step{border-top:3px solid var(--red);padding-top:18px}
+.step h3{font-size:22px;margin-bottom:8px}
+.step p{color:var(--mute);font-size:15px}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.badge{position:relative;margin:0;max-width:460px;width:100%;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -25px rgba(225,6,0,.5)}
+.badge img{width:100%;height:auto;display:block}
+.badge .mini{position:absolute;right:14px;bottom:14px;width:84px;height:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.7))}
+.about p+p{margin-top:14px}
+.about .lead{color:#cfcfcf}
+.about .lead.big{font-size:clamp(19px,2.2vw,24px);color:#fff;line-height:1.45}
+
+/* contact */
+.contact{background:linear-gradient(180deg,#0a0a0a,#1a0000)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.socials{display:grid;gap:12px;margin-top:28px}
+.social{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:var(--bg2);border:1px solid var(--line);text-decoration:none;min-height:64px}
+.social:hover{border-color:var(--red)}
+.social svg{width:28px;height:28px;flex:none}
+.social small{display:block;color:var(--mute);font-size:13px}
+form{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:16px}
+label{display:grid;gap:6px;font-size:14px;font-weight:600}
+input,select,textarea{font:16px Inter,sans-serif;color:#fff;background:#0a0a0a;border:1px solid #333;border-radius:10px;padding:12px 14px;min-height:48px;width:100%}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--red);outline:none;box-shadow:0 0 0 3px rgba(225,6,0,.3)}
+.out{display:none;gap:12px}
+.out.on{display:grid}
+.out pre{white-space:pre-wrap;background:#0a0a0a;border:1px dashed #444;border-radius:10px;padding:14px;font:14px/1.5 Inter,sans-serif;margin:0;color:#ddd}
+.note{font-size:13px;color:var(--mute)}
+.social.wa{border-color:#25d366}
+.wafab{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:20;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.wafab svg{width:32px;height:32px}
+.wafab:hover{transform:scale(1.06)}
+footer{padding:32px max(5vw,16px);border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer .wrap{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.fl{display:inline-flex;align-items:center;gap:10px}.fl img{height:36px;width:auto}
+
+@media(max-width:860px){
+  .hero .wrap,.port .wrap,.about .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
+  .art{order:2}
+  .badge{max-width:320px;margin:0 auto}
+}
+@media(max-width:600px){
+  .logo span{display:none}
+  .links{width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap}
+  .links a{flex:none}
+  nav .btn{display:none}
+  .meta{gap:20px}
+}
+
+/* ===== LUXE: metal oro y rojo, grano de película ===== */
+:root{
+  --gold:linear-gradient(135deg,#7a5a14 0%,#e9c766 22%,#fff3c4 38%,#c9962e 55%,#f5d77f 72%,#7a5a14 100%);
+  --redm:linear-gradient(135deg,#4a0000 0%,#c40500 25%,#ff5a48 42%,#a30300 60%,#e10600 78%,#5a0000 100%);
+  --chrome:linear-gradient(135deg,#8a8a8a 0%,#ffffff 30%,#b9b9b9 55%,#ffffff 75%,#8f8f8f 100%);
+  --edge:linear-gradient(135deg,#f6da86 0%,#8a6418 28%,#e10600 52%,#fff1bd 78%,#9a6f1c 100%);
+  --card:linear-gradient(160deg,#181818 0%,#0c0c0c 100%);
+  --goldc:#e3bd5c;
+}
+body::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.port,.equipo{background:radial-gradient(70% 60% at 85% 0%,rgba(201,150,46,.07),transparent 60%),radial-gradient(60% 60% at 0% 100%,rgba(225,6,0,.1),transparent 60%),#000}
+.hero{background:radial-gradient(120% 80% at 75% 30%,#2a0000 0%,#0a0a0a 60%),#0a0a0a}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--edge);opacity:.8}
+
+/* nav */
+nav{border-bottom:0}
+nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--edge);opacity:.75}
+.links a.hot{background:var(--redm);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 0 0 1px rgba(233,199,102,.55)}
+
+/* texto metalizado */
+.hero h1 span,.ptitle span{background:var(--redm);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(0,0,0,.6))}
+.meta strong{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.band h2:not(.ptitle)::after{content:"";display:block;width:72px;height:3px;margin-top:16px;border-radius:2px;background:var(--gold)}
+.ptitle::after{display:none}
+
+/* botones */
+.btn{border:1px solid transparent;background:linear-gradient(180deg,#ff2a1a 0%,#d10500 45%,#8f0300 100%) padding-box,var(--edge) border-box;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 24px -12px rgba(225,6,0,.8);transition:filter .2s,transform .2s}
+.btn:hover{filter:brightness(1.12);background:linear-gradient(180deg,#ff2a1a 0%,#d10500 45%,#8f0300 100%) padding-box,var(--edge) border-box}
+.btn.ghost{background:linear-gradient(#0b0b0b,#0b0b0b) padding-box,var(--gold) border-box;color:#fff;box-shadow:none}
+.btn.ghost:hover{background:var(--gold) padding-box,var(--gold) border-box;color:#111;filter:none}
+.wa-btn,.wa-btn:hover{background:linear-gradient(180deg,#3be27a,#1fb557 55%,#128c41) padding-box,var(--gold) border-box}
+
+/* franja roja metalizada */
+.strip{background:var(--redm);box-shadow:inset 0 1px 0 #e9c766,inset 0 -1px 0 #e9c766;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.strip .wrap{align-items:center}
+.dia{width:10px;height:10px;transform:rotate(45deg);background:var(--gold);box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+
+/* marcos metalizados */
+.art{border:2px solid transparent;background:#000 padding-box,var(--edge) border-box}
+.screen,.bts figure,.badge{border:0;isolation:isolate}
+.screen::before,.bts figure::before,.badge::before{content:"";position:absolute;inset:0;z-index:3;border-radius:inherit;padding:1.5px;background:var(--edge);pointer-events:none;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.bts figcaption{z-index:2}
+.screen .play{background:var(--redm);box-shadow:0 0 0 2px #e9c766,0 0 0 14px rgba(225,6,0,.16),0 20px 40px -10px rgba(0,0,0,.8)}
+.screen .count{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:1}
+.genres span{border-color:rgba(233,199,102,.35);background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,0))}
+
+/* tarjetas con borde metal */
+.gear,.plan,.social,form,.card{border:1px solid transparent;background:var(--card) padding-box,var(--edge) border-box}
+.gear,.social{transition:transform .2s,box-shadow .2s}
+.gear:hover,.social:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(225,6,0,.55)}
+.social:hover{border-color:transparent}
+.social.wa{border-color:transparent;background:var(--card) padding-box,linear-gradient(135deg,#25d366,#e9c766 50%,#128c41) border-box}
+.plan.top{border:2px solid transparent;background:linear-gradient(160deg,#230606 0%,#0c0c0c 70%) padding-box,var(--gold) border-box}
+.badge-top{background:var(--redm);box-shadow:0 0 0 1px #e9c766,0 8px 18px -6px rgba(0,0,0,.8)}
+.terms{border:2px solid transparent;background:linear-gradient(rgba(8,0,0,.82),rgba(8,0,0,.82)) padding-box,var(--edge) border-box}
+.crew{border:1px solid transparent;background:linear-gradient(135deg,#2a0000,#120000) padding-box,var(--edge) border-box}
+.pp{background:var(--chrome);box-shadow:inset 0 1px 0 #fff,0 12px 30px -10px rgba(0,0,0,.7)}
+.cupos{background:var(--gold);color:#3a0000}
+.pl li{border-color:rgba(233,199,102,.4)}
+
+/* iconos pro: insignia negra con aro metalizado */
+.ico{flex:none;width:60px;height:60px;border-radius:16px;display:grid;place-items:center;border:1.5px solid transparent;
+  background:radial-gradient(circle at 30% 18%,#2c2c2c 0%,#0b0b0b 70%) padding-box,var(--edge) border-box;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),inset 0 -8px 16px rgba(0,0,0,.6),0 12px 26px -12px rgba(225,6,0,.6)}
+.ico svg,.gear .ico svg,.social .ico svg,.crew .ico svg{width:34px;height:34px}
+.ico.md{width:50px;height:50px;border-radius:13px}
+.ico.md svg,.social .ico.md svg{width:25px;height:25px}
+.ico.sm{width:52px;height:52px;border-radius:14px;margin-bottom:14px}
+.ico.sm svg{width:26px;height:26px}
+.crew .ico{width:76px;height:76px;border-radius:50%}
+.crew .ico svg{width:38px;height:38px}
+.wa-i{background:radial-gradient(circle at 30% 18%,#173a24 0%,#07140c 75%) padding-box,linear-gradient(135deg,#25d366,#e9c766 55%,#128c41) border-box}
+
+/* medallas */
+.medal{width:62px;height:62px;display:grid;place-items:center;
+  background:radial-gradient(circle at 32% 26%,#fff 0,var(--medal) 34%,color-mix(in srgb,var(--medal) 45%,#000) 100%);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.3),inset 0 -7px 12px rgba(0,0,0,.45),0 0 0 2px #0a0a0a,0 0 0 4px var(--medal),0 12px 26px -8px rgba(0,0,0,.85)}
+.medal svg{width:30px;height:30px}
+
+/* pasos */
+.step{border-top:0;padding-top:0}
+.step::before{content:"";display:block;height:2px;margin-bottom:20px;background:var(--edge);border-radius:2px}
+
+/* formulario y cierre */
+input,select,textarea{background:#070707;border-color:#2e2a22}
+.wafab{box-shadow:0 0 0 2px #e9c766,0 10px 30px rgba(0,0,0,.5)}
+footer{border-top:0;position:relative}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--edge);opacity:.7}
+@media(prefers-reduced-motion:reduce){.gear,.social,.btn{transition:none}.gear:hover,.social:hover{transform:none}}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="gd" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stop-color="#fff4c9"/><stop offset=".3" stop-color="#e8c463"/><stop offset=".55" stop-color="#a87a22"/><stop offset=".8" stop-color="#f6da86"/><stop offset="1" stop-color="#c99a3a"/></linearGradient><linearGradient id="rd" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stop-color="#ff7a6a"/><stop offset=".45" stop-color="#e10600"/><stop offset="1" stop-color="#ff3b2b"/></linearGradient></defs></svg>
+
+<nav aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="#inicio"><img src="logo-sm.webp" alt="RH Music Films" width="64" height="61"><span>RH Music Films</span></a>
+    <div class="links">
+      <a href="#promo" class="hot">Promo Navideña</a>
+      <a href="#planes">Planes</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#equipo">Equipos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn" href="#contacto">Cotizar</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>Tu música<span>en cine.</span></h1>
+      <p class="lead">Somos <strong>La Fábrica de Sueños</strong>. Escribimos el guion, dirigimos, grabamos y editamos el video musical de tu canción, en el género que hagas.</p>
+      <div class="cta">
+        <a class="btn" href="https://wa.me/573126435147?text=%C2%A1Hola%20RH%20Music%20Films!%20Quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Cotiza por WhatsApp</a>
+        <a class="btn ghost" href="https://www.youtube.com/playlist?list=PLhMf8536c1bNAGFYbuGTqYHX5YPRmjiv2" target="_blank" rel="noopener">Ver nuestros videos</a>
+      </div>
+      <div class="meta">
+        <div><strong>2018</strong>creando desde</div>
+        <div><strong>390+</strong>videos musicales</div>
+        <div><strong>Todos</strong>los géneros</div>
+        <div><strong>Manizales</strong>Colombia</div>
+      </div>
+    </div>
+    <div class="art">
+      <video id="intro" src="intro.mp4" poster="poster.jpg" muted playsinline autoplay preload="auto" aria-label="Intro animada del logo de RH Music Films"></video>
+      <button class="replay" id="replay" type="button" aria-label="Ver la intro otra vez"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Ver intro</button>
+    </div>
+  </div>
+</header>
+
+<div class="strip"><div class="wrap"><span>Guion</span><span class="dia" aria-hidden="true"></span><span>Dirección</span><span class="dia" aria-hidden="true"></span><span>Grabación</span><span class="dia" aria-hidden="true"></span><span>Edición</span></div></div>
+
+<section class="band promo" id="promo">
+  <svg class="snow" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="487" cy="557" r="1.5" fill="#fff" opacity="0.35"/><circle cx="970" cy="594" r="1.5" fill="#fff" opacity="0.5"/><circle cx="26" cy="480" r="2" fill="#fff" opacity="0.5"/><circle cx="479" cy="196" r="3" fill="#fff" opacity="0.35"/><circle cx="1107" cy="562" r="2" fill="#fff" opacity="0.35"/><circle cx="308" cy="237" r="3" fill="#fff" opacity="0.2"/><circle cx="1071" cy="399" r="3" fill="#fff" opacity="0.2"/><circle cx="131" cy="163" r="3" fill="#fff" opacity="0.2"/><circle cx="616" cy="31" r="2" fill="#fff" opacity="0.35"/><circle cx="793" cy="437" r="2" fill="#fff" opacity="0.5"/><circle cx="1181" cy="455" r="1.5" fill="#fff" opacity="0.35"/><circle cx="199" cy="36" r="1.5" fill="#fff" opacity="0.35"/><circle cx="444" cy="264" r="3" fill="#fff" opacity="0.35"/><circle cx="616" cy="431" r="3" fill="#fff" opacity="0.35"/><circle cx="1175" cy="359" r="3" fill="#fff" opacity="0.5"/><circle cx="834" cy="598" r="1.5" fill="#fff" opacity="0.35"/><circle cx="58" cy="286" r="3" fill="#fff" opacity="0.5"/><circle cx="334" cy="334" r="3" fill="#fff" opacity="0.5"/><circle cx="1165" cy="106" r="3" fill="#fff" opacity="0.5"/><circle cx="432" cy="587" r="2" fill="#fff" opacity="0.35"/><circle cx="254" cy="64" r="2" fill="#fff" opacity="0.5"/><circle cx="990" cy="90" r="2" fill="#fff" opacity="0.2"/><circle cx="840" cy="154" r="1.5" fill="#fff" opacity="0.35"/><circle cx="874" cy="425" r="1.5" fill="#fff" opacity="0.2"/><circle cx="92" cy="386" r="3" fill="#fff" opacity="0.5"/><circle cx="677" cy="564" r="2" fill="#fff" opacity="0.5"/><circle cx="483" cy="36" r="2" fill="#fff" opacity="0.2"/><circle cx="157" cy="110" r="3" fill="#fff" opacity="0.5"/><circle cx="64" cy="202" r="2" fill="#fff" opacity="0.35"/><circle cx="539" cy="159" r="3" fill="#fff" opacity="0.2"/><circle cx="695" cy="321" r="2" fill="#fff" opacity="0.2"/><circle cx="773" cy="385" r="2" fill="#fff" opacity="0.5"/><circle cx="790" cy="572" r="1.5" fill="#fff" opacity="0.5"/><circle cx="1038" cy="277" r="2" fill="#fff" opacity="0.5"/><circle cx="486" cy="308" r="2" fill="#fff" opacity="0.35"/><circle cx="1067" cy="310" r="3" fill="#fff" opacity="0.35"/><circle cx="23" cy="425" r="3" fill="#fff" opacity="0.35"/><circle cx="41" cy="385" r="3" fill="#fff" opacity="0.5"/><circle cx="272" cy="61" r="3" fill="#fff" opacity="0.5"/><circle cx="680" cy="477" r="2" fill="#fff" opacity="0.5"/><circle cx="722" cy="285" r="3" fill="#fff" opacity="0.35"/><circle cx="45" cy="62" r="3" fill="#fff" opacity="0.2"/><circle cx="756" cy="257" r="3" fill="#fff" opacity="0.35"/><circle cx="611" cy="327" r="1.5" fill="#fff" opacity="0.35"/><circle cx="379" cy="320" r="2" fill="#fff" opacity="0.5"/><circle cx="540" cy="307" r="2" fill="#fff" opacity="0.2"/><circle cx="55" cy="582" r="3" fill="#fff" opacity="0.5"/><circle cx="269" cy="317" r="3" fill="#fff" opacity="0.2"/><circle cx="551" cy="244" r="2" fill="#fff" opacity="0.2"/><circle cx="891" cy="99" r="1.5" fill="#fff" opacity="0.5"/><circle cx="659" cy="341" r="3" fill="#fff" opacity="0.2"/><circle cx="897" cy="173" r="1.5" fill="#fff" opacity="0.35"/><circle cx="446" cy="582" r="2" fill="#fff" opacity="0.35"/><circle cx="460" cy="123" r="1.5" fill="#fff" opacity="0.5"/><circle cx="390" cy="322" r="3" fill="#fff" opacity="0.2"/><circle cx="570" cy="348" r="3" fill="#fff" opacity="0.2"/><circle cx="707" cy="132" r="2" fill="#fff" opacity="0.35"/><circle cx="1061" cy="277" r="2" fill="#fff" opacity="0.35"/><circle cx="853" cy="297" r="2" fill="#fff" opacity="0.5"/><circle cx="838" cy="36" r="2" fill="#fff" opacity="0.2"/><circle cx="408" cy="4" r="2" fill="#fff" opacity="0.5"/><circle cx="1044" cy="444" r="3" fill="#fff" opacity="0.5"/><circle cx="454" cy="33" r="3" fill="#fff" opacity="0.35"/><circle cx="1062" cy="295" r="3" fill="#fff" opacity="0.35"/><circle cx="465" cy="69" r="3" fill="#fff" opacity="0.35"/><circle cx="245" cy="250" r="1.5" fill="#fff" opacity="0.2"/><circle cx="1049" cy="203" r="2" fill="#fff" opacity="0.5"/><circle cx="101" cy="13" r="2" fill="#fff" opacity="0.5"/><circle cx="247" cy="175" r="3" fill="#fff" opacity="0.35"/><circle cx="489" cy="20" r="3" fill="#fff" opacity="0.5"/></svg>
+  <svg class="phang" aria-hidden="true" preserveAspectRatio="xMidYMin slice" viewBox="0 0 1080 240"><defs><radialGradient id="hb0" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ff5a4a"/><stop offset=".55" stop-color="#e10600"/><stop offset="1" stop-color="#6e0200"/></radialGradient><radialGradient id="hb1" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#c9c9c9"/><stop offset="1" stop-color="#707070"/></radialGradient></defs><line x1="70" y1="0" x2="70" y2="60" stroke="#d8d8d8" stroke-width="2"/><rect x="64" y="56" width="12" height="9" rx="2" fill="#cfcfcf"/><circle cx="70" cy="86" r="22" fill="url(#hb0)"/><ellipse cx="62.3" cy="77.2" rx="6.16" ry="3.96" fill="#fff" opacity=".7"/><line x1="190" y1="0" x2="190" y2="110" stroke="#d8d8d8" stroke-width="2"/><rect x="184" y="106" width="12" height="9" rx="2" fill="#cfcfcf"/><circle cx="190" cy="140" r="26" fill="url(#hb1)"/><ellipse cx="180.9" cy="129.6" rx="7.280000000000001" ry="4.68" fill="#fff" opacity=".7"/><line x1="330" y1="0" x2="330" y2="40" stroke="#d8d8d8" stroke-width="2"/><rect x="324" y="36" width="12" height="9" rx="2" fill="#cfcfcf"/><circle cx="330" cy="64" r="20" fill="url(#hb0)"/><ellipse cx="323.0" cy="56.0" rx="5.6000000000000005" ry="3.5999999999999996" fill="#fff" opacity=".7"/><line x1="750" y1="0" x2="750" y2="50" stroke="#d8d8d8" stroke-width="2"/><rect x="744" y="46" width="12" height="9" rx="2" fill="#cfcfcf"/><circle cx="750" cy="74" r="20" fill="url(#hb1)"/><ellipse cx="743.0" cy="66.0" rx="5.6000000000000005" ry="3.5999999999999996" fill="#fff" opacity=".7"/><line x1="890" y1="0" x2="890" y2="100" stroke="#d8d8d8" stroke-width="2"/><rect x="884" y="96" width="12" height="9" rx="2" fill="#cfcfcf"/><circle cx="890" cy="130" r="26" fill="url(#hb0)"/><ellipse cx="880.9" cy="119.6" rx="7.280000000000001" ry="4.68" fill="#fff" opacity=".7"/><line x1="1010" y1="0" x2="1010" y2="65" stroke="#d8d8d8" stroke-width="2"/><rect x="1004" y="61" width="12" height="9" rx="2" fill="#cfcfcf"/><circle cx="1010" cy="91" r="22" fill="url(#hb1)"/><ellipse cx="1002.3" cy="82.2" rx="6.16" ry="3.96" fill="#fff" opacity=".7"/></svg>
+  <div class="wrap">
+    <div class="pgrid">
+      <svg viewBox="0 0 500 650" class="ptree" aria-hidden="true"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset=".55" stop-color="#9aa0a6"/><stop offset="1" stop-color="#5d6166"/></linearGradient>
+<linearGradient id="ts" x1="0" y1="0" x2="1" y2="0"><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+<radialGradient id="bg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ff5a4a"/><stop offset=".55" stop-color="#e10600"/><stop offset="1" stop-color="#6e0200"/></radialGradient></defs><path d="M250 60 L400 230 Q250 268 100 230 Z" fill="url(#tg)" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/><path d="M250 60 L100 230 Q250 268 400 230" fill="url(#ts)" opacity=".55"/><path d="M250 150 L440 330 Q250 368 60 330 Z" fill="url(#tg)" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/><path d="M250 150 L60 330 Q250 368 440 330" fill="url(#ts)" opacity=".55"/><path d="M250 250 L480 440 Q250 478 20 440 Z" fill="url(#tg)" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/><path d="M250 250 L20 440 Q250 478 480 440" fill="url(#ts)" opacity=".55"/><path d="M250 360 L515 560 Q250 598 -15 560 Z" fill="url(#tg)" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/><path d="M250 360 L-15 560 Q250 598 515 560" fill="url(#ts)" opacity=".55"/><path d="M150 250 Q250 290 335 235" fill="none" stroke="#e10600" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round"/><path d="M130 350 Q250 390 365 330" fill="none" stroke="#e10600" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round"/><path d="M110 455 Q250 495 395 440" fill="none" stroke="#e10600" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round"/><path d="M95 565 Q250 605 410 548" fill="none" stroke="#e10600" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round"/><line x1="205" y1="174" x2="205" y2="190" stroke="#ddd" stroke-width="2"/><rect x="200" y="186" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="205" cy="205" r="15" fill="url(#bg)"/><ellipse cx="199.75" cy="199.0" rx="4.2" ry="2.6999999999999997" fill="#fff" opacity=".75"/><line x1="300" y1="157" x2="300" y2="173" stroke="#ddd" stroke-width="2"/><rect x="295" y="169" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="300" cy="190" r="17" fill="url(#bg)"/><ellipse cx="294.05" cy="183.2" rx="4.760000000000001" ry="3.06" fill="#fff" opacity=".75"/><line x1="175" y1="269" x2="175" y2="285" stroke="#ddd" stroke-width="2"/><rect x="170" y="281" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="175" cy="300" r="15" fill="url(#bg)"/><ellipse cx="169.75" cy="294.0" rx="4.2" ry="2.6999999999999997" fill="#fff" opacity=".75"/><line x1="320" y1="255" x2="320" y2="271" stroke="#ddd" stroke-width="2"/><rect x="315" y="267" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="320" cy="290" r="19" fill="url(#bg)"/><ellipse cx="313.35" cy="282.4" rx="5.32" ry="3.42" fill="#fff" opacity=".75"/><line x1="250" y1="285" x2="250" y2="301" stroke="#ddd" stroke-width="2"/><rect x="245" y="297" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="250" cy="320" r="19" fill="url(#bg)"/><ellipse cx="243.35" cy="312.4" rx="5.32" ry="3.42" fill="#fff" opacity=".75"/><line x1="140" y1="367" x2="140" y2="383" stroke="#ddd" stroke-width="2"/><rect x="135" y="379" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="140" cy="400" r="17" fill="url(#bg)"/><ellipse cx="134.05" cy="393.2" rx="4.760000000000001" ry="3.06" fill="#fff" opacity=".75"/><line x1="230" y1="380" x2="230" y2="396" stroke="#ddd" stroke-width="2"/><rect x="225" y="392" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="230" cy="415" r="19" fill="url(#bg)"/><ellipse cx="223.35" cy="407.4" rx="5.32" ry="3.42" fill="#fff" opacity=".75"/><line x1="345" y1="362" x2="345" y2="378" stroke="#ddd" stroke-width="2"/><rect x="340" y="374" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="345" cy="395" r="17" fill="url(#bg)"/><ellipse cx="339.05" cy="388.2" rx="4.760000000000001" ry="3.06" fill="#fff" opacity=".75"/><line x1="120" y1="479" x2="120" y2="495" stroke="#ddd" stroke-width="2"/><rect x="115" y="491" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="120" cy="510" r="15" fill="url(#bg)"/><ellipse cx="114.75" cy="504.0" rx="4.2" ry="2.6999999999999997" fill="#fff" opacity=".75"/><line x1="200" y1="492" x2="200" y2="508" stroke="#ddd" stroke-width="2"/><rect x="195" y="504" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="200" cy="525" r="17" fill="url(#bg)"/><ellipse cx="194.05" cy="518.2" rx="4.760000000000001" ry="3.06" fill="#fff" opacity=".75"/><line x1="300" y1="485" x2="300" y2="501" stroke="#ddd" stroke-width="2"/><rect x="295" y="497" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="300" cy="520" r="19" fill="url(#bg)"/><ellipse cx="293.35" cy="512.4" rx="5.32" ry="3.42" fill="#fff" opacity=".75"/><line x1="380" y1="469" x2="380" y2="485" stroke="#ddd" stroke-width="2"/><rect x="375" y="481" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="380" cy="500" r="15" fill="url(#bg)"/><ellipse cx="374.75" cy="494.0" rx="4.2" ry="2.6999999999999997" fill="#fff" opacity=".75"/><line x1="250" y1="215" x2="250" y2="231" stroke="#ddd" stroke-width="2"/><rect x="245" y="227" width="10" height="7" rx="2" fill="#cfcfcf"/><circle cx="250" cy="250" r="19" fill="url(#bg)"/><ellipse cx="243.35" cy="242.4" rx="5.32" ry="3.42" fill="#fff" opacity=".75"/><rect x="225" y="585" width="50" height="55" rx="6" fill="#3a3a3a"/><path d="M250 18l13 28 30 3-23 20 7 30-27-16-27 16 7-30-23-20 30-3z" fill="#fff" stroke="#e10600" stroke-width="3"/></svg>
+      <div>
+        <p class="cupos">Cupos limitados</p>
+        <h2 class="ptitle">Promo <span>Navideña</span></h2>
+        <p class="ptwo">2 videos musicales</p>
+        <p class="pp">$1.500.000</p>
+        <p class="pc">Pago de contado para separar tu cupo</p>
+        <ul class="pl">
+          <li>Dirección y guion</li>
+          <li>Grabación profesional</li>
+          <li>Edición completa</li>
+        </ul>
+        <p class="pg">Hacemos videos de todos los géneros: popular, vallenato, urbano, románticos, corridos, cristianos y más.</p>
+        <div class="cta"><a class="btn wa-btn" href="https://wa.me/573126435147?text=%C2%A1Hola%20RH%20Music%20Films!%20Quiero%20la%20Promo%20Navide%C3%B1a%3A%202%20videos%20musicales%20por%20%241.500.000." target="_blank" rel="noopener">Separar mi cupo por WhatsApp</a></div>
+      </div>
+    </div>
+    <div class="terms">
+      <h3>Términos y condiciones</h3>
+      <ul>
+        <li><b>Los 2 videos se graban el mismo día:</b> uno en la mañana y el otro de mediodía en adelante.</li>
+        <li><b>Tienes hasta 3 meses</b> para grabar tu proyecto desde el pago.</li>
+        <li>El pago es de contado y separa tu cupo. Cupos limitados.</li>
+        <li>Las fotos y los diseños para el lanzamiento se cobran por separado.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="planes">
+  <div class="wrap">
+    <h2>Planes de video musical</h2>
+    <p class="lead">Escoge el plan que va con tu canción. Te enviamos la cotización por WhatsApp.</p>
+    <div class="plans"><article class="plan" style="--medal:#b0703c">
+        <div class="medal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.6l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z" fill="rgba(0,0,0,.28)" stroke="rgba(255,255,255,.75)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+        <h3>Plan Bronce</h3>
+        <ul><li>Guion y dirección</li><li>Media jornada de grabación</li><li>1 locación</li><li>Edición y color profesional</li><li>1 versión vertical para redes</li></ul>
+        <a class="btn ghost" href="https://wa.me/573126435147?text=%C2%A1Hola%2C%20RH%20Music%20Films%21%20Quiero%20cotizar%20el%20Plan%20Bronce%20para%20mi%20video%20musical." target="_blank" rel="noopener">Cotizar Plan Bronce</a>
+      </article><article class="plan top" style="--medal:#c9ccd1"><span class="badge-top">El más elegido</span>
+        <div class="medal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.6l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z" fill="rgba(0,0,0,.28)" stroke="rgba(255,255,255,.75)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+        <h3>Plan Plata</h3>
+        <ul><li>Guion y dirección</li><li>Jornada completa de grabación</li><li>2 o 3 locaciones</li><li>Iluminación profesional</li><li>Color cinematográfico</li><li>3 clips verticales para TikTok y Reels</li></ul>
+        <a class="btn" href="https://wa.me/573126435147?text=%C2%A1Hola%2C%20RH%20Music%20Films%21%20Quiero%20cotizar%20el%20Plan%20Plata%20para%20mi%20video%20musical." target="_blank" rel="noopener">Cotizar Plan Plata</a>
+      </article><article class="plan" style="--medal:#e3b341">
+        <div class="medal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.6l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z" fill="rgba(0,0,0,.28)" stroke="rgba(255,255,255,.75)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+        <h3>Plan Oro</h3>
+        <ul><li>Concepto creativo, guion y dirección</li><li>Jornada completa de grabación</li><li>Hasta 4 locaciones</li><li>Dirección de arte</li><li>Humo, luces y efectos visuales</li><li>5 clips verticales para redes</li></ul>
+        <a class="btn ghost" href="https://wa.me/573126435147?text=%C2%A1Hola%2C%20RH%20Music%20Films%21%20Quiero%20cotizar%20el%20Plan%20Oro%20para%20mi%20video%20musical." target="_blank" rel="noopener">Cotizar Plan Oro</a>
+      </article></div>
+    <p class="note pnote">En todos los planes: las fotos y los diseños para el lanzamiento se cobran por separado.</p>
+  </div>
+</section>
+
+<section class="band port" id="portafolio">
+  <div class="wrap">
+    <a class="screen" href="https://www.youtube.com/playlist?list=PLhMf8536c1bNAGFYbuGTqYHX5YPRmjiv2" target="_blank" rel="noopener" aria-label="Ver los audiovisuales en YouTube">
+      <span class="play"><svg width="34" height="34" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="count">394</span><span class="tag">Playlist RH MUSIC FILMS – AUDIOVISUALES · YouTube</span>
+    </a>
+    <div>
+      <h2>Más de 390 videos musicales</h2>
+      <p class="lead">Artistas que han confiado en nosotros: Jeny López, Junior Posada, Jhony Rivera, Los de Yolombó, Los Duros del Despecho, Paul Álvarez, Amín de Los Diablitos del Vallenato, Sarita Forero, Landa Freak, Alex Martyn, Víctor Rodas, Los Romanceros de América, July Grajales, Yerick Rey, Karen Corrales, entre muchos más.</p>
+      <div class="genres"><span>Música popular</span><span>Vallenato</span><span>Cumbia</span><span>Corridos</span><span>Parranda</span><span>Románticas</span><span>Cristiana</span><span>Urbano</span><span>Reggaetón</span><span>Trap</span></div>
+      <div class="cta"><a class="btn" href="https://www.youtube.com/playlist?list=PLhMf8536c1bNAGFYbuGTqYHX5YPRmjiv2" target="_blank" rel="noopener">Ver todos los videos</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band equipo" id="equipo">
+  <div class="wrap">
+    <h2>Nuestros equipos</h2>
+    <p class="lead">Llegamos al rodaje con todo lo necesario para que tu video se vea de cine. Las fotos son de nuestros rodajes.</p>
+    <div class="gears"><article class="gear"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="14" height="11" rx="2"/><path d="M16 10.5l5.5-2.8v10.6L16 15.5"/><path d="M5 7V4.5h6V7"/><circle cx="6" cy="12.5" r="1.4" fill="url(#rd)" stroke="none"/><path d="M9.5 12.5h3.5" stroke="url(#rd)"/></svg></span><div><h3>Sony FX30</h3><p>Cámara de cine con imagen profesional para tus videos.</p></div></article><article class="gear"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="12" rx="2.5"/><path d="M8 7l1.3-2.5h5.4L16 7"/><circle cx="12" cy="13" r="4"/><circle cx="12" cy="13" r="1.6" stroke="url(#rd)"/><circle cx="18.3" cy="9.8" r=".7" fill="url(#rd)" stroke="none"/></svg></span><div><h3>Sony a6500</h3><p>Segunda cámara para más ángulos, tomas de apoyo y detalles.</p></div></article><article class="gear"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="6"/><path d="M12 8.6l2.95 1.7v3.4L12 15.4l-2.95-1.7v-3.4z" stroke="url(#rd)"/><path d="M12 3v2.2M21 12h-2.2M12 21v-2.2M3 12h2.2"/></svg></span><div><h3>Lentes 16 mm, 35 mm y 50 mm</h3><p>Planos abiertos, medios y retratos con fondo desenfocado.</p></div></article><article class="gear"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="10" height="6" rx="1.3"/><circle cx="7.5" cy="6.5" r="1.4" stroke="url(#rd)"/><path d="M14 6.5h4V11h-6v3"/><circle cx="18" cy="11" r="1.3"/><rect x="10.5" y="14" width="3" height="7.5" rx="1.5"/></svg></span><div><h3>Estabilizadores DJI</h3><p>Movimientos suaves y tomas fluidas, incluso caminando.</p></div></article><article class="gear"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="12" width="11" height="7" rx="1.5"/><path d="M13.5 15.5H16"/><path d="M5 19v2M11 19v2"/><path d="M17 13.5c1.5-1 3-.2 3.5 1.2M17.5 17.5c1.8.6 3.2-.2 3.6-1.6M16.8 9.8c1-2 3.3-2.3 4.6-.8" stroke="url(#rd)"/><circle cx="6" cy="15.5" r=".8" fill="url(#gd)" stroke="none"/></svg></span><div><h3>Máquina de humo</h3><p>Atmósfera y profundidad para escenas con más impacto.</p></div></article><article class="gear"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="9" rx="2"/><circle cx="12" cy="7.5" r="2.6" stroke="url(#rd)"/><path d="M6 4.5L3.5 3M18 4.5L20.5 3M6 10.5L3.5 12M18 10.5l2.5 1.5"/><path d="M12 12v6M8 21.5l4-3.5 4 3.5"/></svg></span><div><h3>Luces cálidas</h3><p>Iluminación que le da ambiente y calidez a cada escena.</p></div></article></div>
+    <div class="bts">
+      <figure class="b1"><img src="bts-guayacanes.webp" alt="Rodaje de un video musical entre guayacanes amarillos" loading="lazy" width="900" height="1200"><figcaption>Rodaje entre guayacanes</figcaption></figure>
+      <figure class="b3"><img src="bts-humo.webp" alt="Rodaje urbano con máquina de humo, luz y estabilizador DJI" loading="lazy" width="900" height="1600"><figcaption>Humo, luz y estabilizador</figcaption></figure>
+    </div>
+    <div class="crew"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5" stroke="url(#rd)"/><path d="M16.2 14.2c2.9.2 4.8 2.6 4.8 5.8" stroke="url(#rd)"/></svg></span><p>Un equipo profesional y con experiencia para respaldar tu proyecto.</p></div>
+  </div>
+</section>
+
+<section class="band" id="proceso">
+  <div class="wrap">
+    <h2>Cómo trabajamos</h2>
+    <p class="lead">Un proceso claro, para que sepas qué sigue en cada momento.</p>
+    <div class="steps">
+      <div class="step"><span class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/><path d="M12 7v3.5M12 10.5l-1.6 1.6M12 10.5l1.6 1.6" stroke="url(#rd)"/></svg></span><h3>1. Idea</h3><p>Escuchamos tu canción y definimos el concepto, la estética y lo que quieres transmitir.</p></div>
+      <div class="step"><span class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2.5h8.5l4 4V21.5H6z"/><path d="M14.5 2.5v4h4"/><path d="M9 11h6.5M9 14.5h6.5" stroke="url(#rd)"/><path d="M9 18h4"/></svg></span><h3>2. Guion</h3><p>Escribimos el guion y planeamos locaciones, vestuario y cronograma, con cotización clara desde el inicio.</p></div>
+      <div class="step"><span class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="1.6"/><path d="M3.2 10L4.4 5l16.4 3.7-.5 1.3"/><path d="M8.6 6l1.6 4M13.4 7.1l1.6 2.9" stroke="url(#rd)"/><path d="M7 15h10M7 18h6"/></svg></span><h3>3. Rodaje</h3><p>Dirigimos y grabamos con equipo profesional, cuidando cada toma.</p></div>
+      <div class="step"><span class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M7 4.5v15M17 4.5v15M3 9h4M3 15h4M17 9h4M17 15h4"/><path d="M10.5 9.5v5l4-2.5z" stroke="url(#rd)"/></svg></span><h3>4. Edición y entrega</h3><p>Editamos y le damos color de cine. Recibes tu video listo para publicar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band about" id="nosotros">
+  <div class="wrap">
+    <figure class="badge"><img src="feniz.webp" alt="Rodaje de RH Music Films con estabilizador DJI" width="640" height="634"><img class="mini" src="logo-sm.webp" alt="" width="160" height="152"></figure>
+    <div>
+      <h2>La Fábrica de Sueños</h2>
+      <p class="lead big">RH Music Films nació de un sueño. Por eso hoy somos La Fábrica de Sueños: convertimos tu canción en el video que imaginas.</p>
+      <div class="cta"><a class="btn" href="#planes">Ver los planes</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2>Hagamos tu video musical</h2>
+      <p class="lead">Cuéntanos de tu canción y te enviamos la cotización por WhatsApp.</p>
+      <div class="socials">
+        <a class="social wa" href="https://wa.me/573126435147" target="_blank" rel="noopener">
+          <span class="ico md wa-i"><svg viewBox="0 0 24 24" fill="#25d366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg></span>
+          <span><strong>WhatsApp · 312 643 5147</strong><small>Cotizaciones y reservas</small></span>
+        </a>
+        <a class="social" href="https://www.instagram.com/rhmusicfilms/" target="_blank" rel="noopener">
+          <span class="ico md"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4" stroke="url(#rd)"/><circle cx="17.3" cy="6.7" r=".9" fill="url(#gd)" stroke="none"/></svg></span>
+          <span><strong>@rhmusicfilms</strong><small>Instagram de la productora</small></span>
+        </a>
+        <a class="social" href="https://www.youtube.com/playlist?list=PLhMf8536c1bNAGFYbuGTqYHX5YPRmjiv2" target="_blank" rel="noopener">
+          <span class="ico md"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gd)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="url(#rd)" stroke="url(#rd)"/></svg></span>
+          <span><strong>Nuestros videos en YouTube</strong><small>Más de 390 videos musicales</small></span>
+        </a>
+      </div>
+    </div>
+    <form id="quote" novalidate>
+      <h3>Pide tu cotización</h3>
+      <label for="q-name">Nombre o nombre artístico
+        <input id="q-name" name="name" autocomplete="name" required>
+      </label>
+      <label for="q-svc">¿Qué plan te interesa?
+        <select id="q-svc" name="svc">
+          <option>Promo Navideña (2 videos)</option>
+          <option>Plan Bronce</option>
+          <option>Plan Plata</option>
+          <option>Plan Oro</option>
+          <option>Aún no sé, quiero asesoría</option>
+        </select>
+      </label>
+      <label for="q-date">Fecha aproximada
+        <input id="q-date" name="date" placeholder="Ej: diciembre">
+      </label>
+      <label for="q-msg">Cuéntanos tu idea
+        <textarea id="q-msg" name="msg" placeholder="Nombre de la canción, género, ciudad y lo que imaginas…"></textarea>
+      </label>
+      <button class="btn" type="submit"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>Enviar por WhatsApp</button>
+      <p class="note" id="q-note">Se abre WhatsApp con tu mensaje listo para enviar al 312 643 5147.</p>
+      <div class="out" id="q-out" aria-live="polite">
+        <pre id="q-text"></pre>
+        <a class="btn" id="q-wa" href="https://wa.me/573126435147" target="_blank" rel="noopener">Abrir WhatsApp</a>
+        <button class="btn ghost" type="button" id="q-copy">Copiar mensaje</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<a class="wafab" href="https://wa.me/573126435147?text=%C2%A1Hola%20RH%20Music%20Films!" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg></a>
+
+<footer>
+  <div class="wrap">
+    <span class="fl"><img src="logo-sm.webp" alt="" width="40" height="38">© <span id="yr">2026</span> RH Music Films · Manizales, Colombia</span>
+    <span>WhatsApp <a href="https://wa.me/573126435147" target="_blank" rel="noopener">312 643 5147</a> · Instagram <a href="https://www.instagram.com/rhmusicfilms/" target="_blank" rel="noopener">@rhmusicfilms</a></span>
+  </div>
+</footer>
+
+<script>
+{
+  const f = document.getElementById('quote');
+  const out = document.getElementById('q-out');
+  const txt = document.getElementById('q-text');
+  const note = document.getElementById('q-note');
+  const v = document.getElementById('intro');
+  const rp = document.getElementById('replay');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+  rp.addEventListener('click', () => { v.currentTime = 0; const p = v.play(); if (p) p.catch(() => {}); });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const d = new FormData(f);
+    const name = (d.get('name') || '').trim();
+    if (!name) { document.getElementById('q-name').focus(); return; }
+    const msg = `¡Hola, RH Music Films! Soy ${name}.\nMe interesa: ${d.get('svc')}.` +
+      (d.get('date') ? `\nFecha aproximada: ${d.get('date')}.` : '') +
+      (d.get('msg') ? `\nMi idea: ${d.get('msg')}` : '') + `\n¿Me pueden enviar una cotización?`;
+    const url = 'https://wa.me/573126435147?text=' + encodeURIComponent(msg);
+    txt.textContent = msg;
+    document.getElementById('q-wa').href = url;
+    out.classList.add('on');
+    note.textContent = 'Si WhatsApp no se abrió solo, toca "Abrir WhatsApp".';
+    const w = window.open(url, '_blank', 'noopener');
+  });
+  document.getElementById('q-copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(txt.textContent); note.textContent = '¡Mensaje copiado! Pégalo en WhatsApp al 312 643 5147.'; }
+    catch (err) { note.textContent = 'Mantén presionado el texto de arriba para copiarlo.'; }
+  });
+}
+</script>
+</body>
+</html>
